@@ -14,6 +14,7 @@ namespace Valve.VR.Extras
         public bool active = true;
         public Color color;
         public float thickness = 0.002f;
+        public float distance = 0.002f;
         public Color clickColor = Color.green;
         public GameObject holder;
         public GameObject pointer;
@@ -96,9 +97,7 @@ namespace Valve.VR.Extras
                 isActive = true;
                 this.transform.GetChild(0).gameObject.SetActive(true);
             }
-
-            float dist = 100f;
-
+            float dist = distance;
             Ray raycast = new Ray(transform.position, transform.forward);
             RaycastHit hit;
             bool bHit = Physics.Raycast(raycast, out hit);
@@ -144,15 +143,15 @@ namespace Valve.VR.Extras
 
             if (interactWithUI != null && interactWithUI.GetState(pose.inputSource))
             {
-                pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, dist);
+                pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, distance);
                 pointer.GetComponent<MeshRenderer>().material.color = clickColor;
             }
             else
             {
-                pointer.transform.localScale = new Vector3(thickness, thickness, dist);
+                pointer.transform.localScale = new Vector3(thickness, thickness, distance);
                 pointer.GetComponent<MeshRenderer>().material.color = color;
             }
-            pointer.transform.localPosition = new Vector3(0f, 0f, dist / 2f);
+            pointer.transform.localPosition = new Vector3(0f, 0f, distance / 2f);
         }
     }
 

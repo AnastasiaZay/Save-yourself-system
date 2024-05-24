@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 11465950}
   - component: {fileID: 5194427080699886390}
   - component: {fileID: 5158467790168008468}
+  - component: {fileID: 5586004747589917288}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -306,8 +307,8 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.6
-  m_Radius: 0.2
+  m_Height: 1.51
+  m_Radius: 0.05
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -325,7 +326,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4df5046860db84bbcfde47d7e6c4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 5.21
+--- !u!114 &5586004747589917288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217c2555c909d134083c48ff607f5b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,6 +1146,7 @@ MonoBehaviour:
   active: 1
   color: {r: 1, g: 1, b: 1, a: 0}
   thickness: 0.005
+  distance: 4.5
   clickColor: {r: 0, g: 0.5647059, b: 1, a: 1}
   holder: {fileID: 0}
   pointer: {fileID: 0}
@@ -1298,7 +1312,8 @@ MonoBehaviour:
   active: 1
   color: {r: 1, g: 1, b: 1, a: 0}
   thickness: 0.005
-  clickColor: {r: 0, g: 0.5664313, b: 1, a: 1}
+  distance: 4.5
+  clickColor: {r: 0, g: 0.5664313, b: 1, a: 0.5372549}
   holder: {fileID: 0}
   pointer: {fileID: 0}
   addRigidBody: 0

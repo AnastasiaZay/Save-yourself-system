@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
         m_Boolean = SteamVR_Actions._default.TouchClick;
         controller = GetComponent<CharacterController>();
 
+        
 
 
     }
@@ -45,7 +46,8 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        
+        ///Для спавна
+        SpawnPoint.GetRespawn(gameObject);
     }
 
    

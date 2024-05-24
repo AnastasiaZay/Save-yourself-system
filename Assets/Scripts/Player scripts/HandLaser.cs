@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Valve.VR.Extras;
+using Valve.VR.InteractionSystem;
 
-public class HanfLaser : SteamVR_LaserPointer //Наследуемся от того скрипта от SteamVR, который с лазерами
+public class HandLaser : SteamVR_LaserPointer //Наследуемся от того скрипта от SteamVR, который с лазерами
 {
     public override void OnPointerIn(PointerEventArgs e) //Когда наводишь луч
     {
@@ -12,6 +13,11 @@ public class HanfLaser : SteamVR_LaserPointer //Наследуемся от того скрипта от S
         if (e.target.CompareTag("ButtonUI"))
         {
             e.target.GetComponent<Image>().color = Color.blue;
+            thickness = 0.005f;
+        }
+        if (e.target?.gameObject.GetComponent<Throwable>() != null)
+        {
+            thickness = 0.005f;
         }
     }
 
@@ -26,10 +32,17 @@ public class HanfLaser : SteamVR_LaserPointer //Наследуемся от того скрипта от S
 
     public override void OnPointerOut(PointerEventArgs e) //Когда сводишь луч
     {
+
         base.OnPointerIn(e);
         if (e.target.CompareTag("ButtonUI"))
         {
             e.target.GetComponent<Image>().color = Color.white;
+            thickness = 0;
+        }
+        if (e.target?.gameObject.GetComponent<Throwable>() == null)
+        {
+            thickness = 0;
         }
     }
+    
 }
