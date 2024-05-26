@@ -13,11 +13,11 @@ public class HandLaser : SteamVR_LaserPointer //Наследуемся от того скрипта от S
         if (e.target.CompareTag("ButtonUI"))
         {
             e.target.GetComponent<Image>().color = Color.blue;
-            thickness = 0.005f;
+            
         }
         if (e.target?.gameObject.GetComponent<Throwable>() != null)
         {
-            thickness = 0.005f;
+            e.target.GetComponent<Image>().color = Color.green;
         }
     }
 
@@ -37,11 +37,11 @@ public class HandLaser : SteamVR_LaserPointer //Наследуемся от того скрипта от S
         if (e.target.CompareTag("ButtonUI"))
         {
             e.target.GetComponent<Image>().color = Color.white;
-            thickness = 0;
+           
         }
         if (e.target?.gameObject.GetComponent<Throwable>() == null)
         {
-            thickness = 0;
+            
         }
     }
     

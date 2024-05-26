@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.saveyourselfsystem.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "E:\\Games development\\Unity\\SaveYourselfSystem\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "E:\\Games development\\Unity\\Save-yourself-system\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "SaveYourselfSystem [Testing]"
