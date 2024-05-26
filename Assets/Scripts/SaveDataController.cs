@@ -9,8 +9,9 @@ public class SaveDataController : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
+        if (Instance == null )
         {
+            Debug.Log("Hi");
             Instance = this;
             DontDestroyOnLoad(transform.gameObject);
         }
