@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
 using Valve.Newtonsoft.Json;
@@ -541,7 +540,7 @@ namespace Valve.VR
             {
                 string bindingPath = Path.Combine(partialBindingDirectory, newDefaultPath.binding_url);
                 string newBindingPath = Path.Combine(bindingsFolder, newDefaultPath.binding_url);
-                File.Copy(bindingPath, newBindingPath, true); 
+                File.Copy(bindingPath, newBindingPath, true);
             }
 
             partialBinding.imported = true;

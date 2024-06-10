@@ -26547,6 +26547,10 @@ PrefabInstance:
       propertyPath: distance
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5158467790168008468, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

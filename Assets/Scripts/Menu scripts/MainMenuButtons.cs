@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +7,7 @@ public class MenuButtons : MonoBehaviour
     public Transform buttonPosition;
 
     public string SceneName;
-    
+
     public void StartRandom()
     {
         SceneManager.LoadScene(SceneName);

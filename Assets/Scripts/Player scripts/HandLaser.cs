@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Valve.VR.Extras;
@@ -9,11 +7,11 @@ public class HandLaser : SteamVR_LaserPointer //Наследуемся от того скрипта от S
 {
     public override void OnPointerIn(PointerEventArgs e) //Когда наводишь луч
     {
-        base.OnPointerIn(e); 
+        base.OnPointerIn(e);
         if (e.target.CompareTag("ButtonUI"))
         {
             e.target.GetComponent<Image>().color = Color.blue;
-            
+
         }
         if (e.target?.gameObject.GetComponent<Throwable>() != null)
         {
@@ -37,12 +35,12 @@ public class HandLaser : SteamVR_LaserPointer //Наследуемся от того скрипта от S
         if (e.target.CompareTag("ButtonUI"))
         {
             e.target.GetComponent<Image>().color = Color.white;
-           
+
         }
         if (e.target?.gameObject.GetComponent<Throwable>() == null)
         {
-            
+
         }
     }
-    
+
 }

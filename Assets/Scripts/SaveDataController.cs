@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveDataController : MonoBehaviour
@@ -9,7 +7,7 @@ public class SaveDataController : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null )
+        if (Instance == null)
         {
             Debug.Log("Hi");
             Instance = this;

@@ -1,9 +1,6 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine.Serialization;
 
 namespace Valve.VR
@@ -175,7 +172,7 @@ namespace Valve.VR
                 return defaultAsset;
             }
             //else //todo: this will generally fail on the first try but will try again before its an issue.
-                //Debug.LogError("[SteamVR] Could not load default hand preview prefab: " + assetName);
+            //Debug.LogError("[SteamVR] Could not load default hand preview prefab: " + assetName);
 #endif
 
             return null;

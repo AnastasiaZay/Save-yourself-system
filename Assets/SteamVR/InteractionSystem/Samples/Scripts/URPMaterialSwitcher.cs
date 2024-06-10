@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 #if UNITY_EDITOR && UNITY_URP
 using UnityEditor;
@@ -9,7 +7,7 @@ using UnityEditor;
 [ExecuteInEditMode]
 public class URPMaterialSwitcher : MonoBehaviour
 {
-	public bool children = false;
+    public bool children = false;
 
 #if UNITY_EDITOR && UNITY_URP
 
