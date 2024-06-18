@@ -2,22 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Storage : MonoBehaviour
+public static class Storage 
 {
-    
+    //Текущий пользователь
     public static User currentUser;
-    public static string currentKey;
-    public static int number_of_quests_records, number_of_traps_record, point_of_spawn_record, max_health_record, smoke_level_records;
-    public static string time_limit_records;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //Текущий ключ текстом
+    public static string currentKey;
+
+    //Текущие установки ключа (количество заданий, количество ловушек, точка спавна, максимальное ХП, уровень задымления)
+    public static int number_of_quests_records, 
+        number_of_traps_record, 
+        point_of_spawn_record, 
+        max_health_record, 
+        smoke_level_records;
+    public static string time_limit_records; //Лимит по времени
+
+    //ХП игрока
+    public static int playerHP;
+
+    //Постоянная часть ссылки на Java часть
+    public static string HTTPreference = "http://localhost:8080/";
+
+
 }
+

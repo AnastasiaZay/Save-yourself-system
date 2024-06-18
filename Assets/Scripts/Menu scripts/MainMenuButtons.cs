@@ -12,11 +12,20 @@ public class MenuButtons : MonoBehaviour
     public GameObject prefab;
     public Transform buttonPosition;
     HttpClient httpClient = new HttpClient();
-    string reference = "http://localhost:8080/";
-    public InputField loginInput;
+
+    public InputField loginInput; //Поле с логином в логине
     public InputField passwordInput;
     public string SceneName;
-    
+    public GameObject panelKey;
+    public GameObject panelRecords;
+    public GameObject panelStudent;
+    public GameObject panelGuest;
+    public GameObject panelLogin;
+
+    public Text nameText;
+    public Text lastNameText;
+
+    public Text errorLoginText;
 
     public void StartRandom()
     {
@@ -27,6 +36,19 @@ public class MenuButtons : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
     }
+    public void BackToMain()
+    {
+        if (Storage.currentUser == null)
+        {
+            panelGuest.gameObject.SetActive(true);
+        }
+        else
+        {
+            panelStudent.gameObject.SetActive(true);
+        }
+        panelKey.gameObject.SetActive(false);
+        panelRecords.gameObject.SetActive(false);
+    }
     public void Exit()
     {
         Application.Quit();
@@ -34,6 +56,8 @@ public class MenuButtons : MonoBehaviour
     public void SignOut()
     {
         Storage.currentUser = null;
+        panelGuest.gameObject.SetActive(true);
+        panelStudent.gameObject.SetActive(false);
     }
     public void SingInConect()
     {
@@ -50,20 +74,32 @@ public class MenuButtons : MonoBehaviour
         var content = new StringContent(miniUserJson);
         try
         {
-            HttpResponseMessage response = await httpClient.PostAsync(reference + "unityConnectSingIn", content);
+            HttpResponseMessage response = await httpClient.PostAsync(Storage.HTTPreference + "unityConnectSingIn", content);
             string userJson = await response.Content.ReadAsStringAsync();
             if (userJson.Equals("Нет"))
             {
+                errorLoginText.gameObject.SetActive(true);
                 Debug.Log(userJson);
                 return;
             }
             if (userJson.Equals("Неверный логин или пароль"))
             {
+                errorLoginText.gameObject.SetActive(true);
+
                 Debug.Log(userJson);
                 return;
             }
-            Storage.currentUser = JsonUtility.FromJson<User>(userJson);
+            User tempUser = JsonUtility.FromJson<User>(userJson);
+            Storage.currentUser = tempUser;
             Debug.Log(userJson);
+            Debug.Log(tempUser.getName());
+            errorLoginText.gameObject.SetActive(false);
+            panelLogin.gameObject.SetActive(false);
+            panelStudent.gameObject.SetActive(true);
+
+            Debug.Log(Storage.currentUser.getName());
+            nameText.text = Storage.currentUser.getName();
+            lastNameText.text = Storage.currentUser.getLastName();
         }
         catch (Exception)
         {
@@ -97,51 +133,23 @@ public class MenuButtons : MonoBehaviour
             Debug.Log("Подключение не удалось");
         }*/
     }
-    ///Общие кнопки
-    //Переход к главному меню
-    /*-------------------------------------------------------------------------*/
 
-    ///Кнопки главного меню
-    //Начать тестирование
+    public void RecordsConect()
+    {
+        AsyncConnectRecords();
+    }
+    private async Task AsyncConnectRecords()
+    {
+        HttpResponseMessage response = await httpClient.GetAsync(Storage.HTTPreference + "unityConnectRecords");
+        string recordJson = await response.Content.ReadAsStringAsync();
 
-    //Пройти обучение
+    }
 
-    //Войти в аккаунт
 
-    //Регистрация
-
-    //Рекорды
-
-    //Выход из игры
-
-    /*-------------------------------------------------------------------------*/
-
-    ///Кнопки регистрации
-    //Введите имя и фамилию
-
-    //Введите почту
-
-    //Введите логин
-
-    //Введите пароль и повторите пароль
-
-    //Выберите пол
-
-    //Зарегестрироваться
-
-    /*-------------------------------------------------------------------------*/
-    ///Кнопки входа
-    //Введите логин
-
-    //Введите пароль
-
-    /*-------------------------------------------------------------------------*/
-    ///Кнопки рекордов
-    ///
     [Serializable]
     public class MiniUser
     {
-        public string miniLogin;//{ get; set; }
-        public string miniPassword; //{ get; set; }
+        public string miniLogin;
+        public string miniPassword;
     }
 }

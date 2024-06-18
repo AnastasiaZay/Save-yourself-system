@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,18 +8,26 @@ using UnityEngine.Networking;
 [System.Serializable]
 public class User
 {
-    private int id;
-    private string login;
-    private string password;
-    private string email;
-    private int Is_admin_user; //мб поменяю на инт
-    private string name;
-    private string last_name;
-    private int is_woman;
-    private int id_best_record_user;
-    private string birth_date; //Поменять на дату
-    private string picture_user;
+    public int id;
+    public string login;
+    public string password;
+    public string email;
+    public int Is_admin_user; //мб поменяю на инт
+    public string name;
+    public string last_name;
+    public int is_woman;
+    public int id_best_record_user;
+    public string birth_date; //Поменять на дату
+    public string picture_user;
 
+    public string getName()
+    {
+        return name;
+    }
+    public string getLastName()
+    {
+        return last_name;
+    }
 
     public User(int id, string login, string password, string email, int is_admin_user, string name,
         string last_name, int is_woman, int id_best_record_user, string birth_date, string picture_user)
@@ -35,9 +44,44 @@ public class User
         this.birth_date = birth_date;
         this.picture_user = picture_user;
     }
-    public void SetLogin(string login) => this.login = login;
-    //public void SetSecondColor(string color) => colorSecond = color;
-    //public void SetNickname(string name) => nickname = name;
+    
+    
+}
+[System.Serializable]
+public class Record
+{
+    public int id;
+    public int score_records;
+    public int id_user_records;
+    public int grade_records;
+    public Time time_records;
+    public string date_of_records; ///А надо бы дату
+    public bool exit_param_record;
+    public int number_of_solved_quests_records;
+    public int health_record;
+    public int id_key_record;
+    public int is_record;
+    public string beaubeautifullDate;
+
+    public Record(int id, int score_records, int id_user_records, int grade_records, Time time_records,
+        string date_of_records, bool exit_param_record, int number_of_solved_quests_records,
+        int health_record, int id_key_record, int is_record)
+    {
+        this.id = id;
+        this.score_records = score_records;
+        this.id_user_records = id_user_records;
+        this.grade_records = grade_records;
+        this.time_records = time_records;
+        this.date_of_records = date_of_records;
+        this.exit_param_record = exit_param_record;
+        this.number_of_solved_quests_records = number_of_solved_quests_records;
+        this.health_record = health_record;
+        this.id_key_record = id_key_record;
+        this.is_record = is_record;
+    }
+
+
+
 }
 
 [System.Serializable]
@@ -56,141 +100,6 @@ public class WebManager : MonoBehaviour
 {
 
     public static UserData userData = new UserData();
-    [SerializeField] private string targetURL;
-
-    [SerializeField] private UnityEvent OnLogged, OnRegistered, OnError;
-
-    public enum RequestType
-    {
-        logging, register, save
-    }
-
-
-    public string GetUserData(UserData data)
-    {
-        return JsonUtility.ToJson(data);
-    }
-
-    public UserData SetUserData(string data)
-    {
-        print(data);
-        return JsonUtility.FromJson<UserData>(data);
-    }
-
-    private void Start()
-    {
-        userData.error = new ErrorDB() { errorText = "text", isDBError = true };
-        //userData.playerData = new User("Yagir", "", "");
-    }
-
-    public void Login(string login, string password)
-    {
-        StopAllCoroutines();
-        if (CheckString(login) && CheckString(password))
-        {
-            Logging(login, password);
-        }
-        else
-        {
-            userData.error.errorText = "To small length";
-            OnError.Invoke();
-        }
-    }
-    public void Registration(string login, string password, string password2, string nickname)
-    {
-        StopAllCoroutines();
-        if (CheckString(login) && CheckString(password) && CheckString(password2) && CheckString(nickname) && password == password2)
-        {
-            Registering(login, password, password2, nickname);
-        }
-        else
-        {
-            userData.error.errorText = "To small length";
-            OnError.Invoke();
-        }
-    }
-
-    public bool CheckString(string toCheck)
-    {
-        toCheck = toCheck.Trim();
-        if (toCheck.Length > 4 && toCheck.Length < 16)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public void SaveData(int id, string nickname, string main, string second)
-    {
-        StopAllCoroutines();
-        SaveProgress(id, nickname, main, second);
-    }
-
-    public void Logging(string login, string password)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("type", RequestType.logging.ToString());
-        form.AddField("login", login);
-        form.AddField("password", password);
-        StartCoroutine(SendData(form, RequestType.logging));
-    }
-
-    public void Registering(string login, string password1, string password2, string nickname)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("type", RequestType.register.ToString());
-        form.AddField("login", login);
-        form.AddField("password1", password1);
-        form.AddField("password2", password2);
-        form.AddField("nickname", nickname);
-        StartCoroutine(SendData(form, RequestType.register));
-    }
-    public void SaveProgress(int id, string nickname, string main, string second)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("type", RequestType.save.ToString());
-        form.AddField("id", id);
-        form.AddField("colorMain", main);
-        form.AddField("colorSecond", second);
-        form.AddField("nickname", nickname);
-        StartCoroutine(SendData(form, RequestType.save));
-    }
-
-    IEnumerator SendData(WWWForm form, RequestType type)
-    {
-        using (UnityWebRequest www = UnityWebRequest.Post(targetURL, form))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                var data = SetUserData(www.downloadHandler.text);
-                if (!data.error.isDBError)
-                {
-                    if (type != RequestType.save)
-                    {
-                        userData = data;
-                        if (type == RequestType.logging)
-                        {
-                            OnLogged.Invoke();
-                        }
-                        else
-                        {
-                            OnRegistered.Invoke();
-                        }
-                    }
-                }
-                else
-                {
-                    userData = data;
-                    OnError.Invoke();
-                }
-            }
-        }
-    }
+    
 }
 
