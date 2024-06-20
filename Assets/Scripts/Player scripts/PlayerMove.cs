@@ -56,7 +56,7 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         ///Для спавна
-        SpawnPoint.GetRespawn(gameObject);
+        PointSpawnPoint.GetRespawn(gameObject);
     }
 
     bool CheckIsGround()

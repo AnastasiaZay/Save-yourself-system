@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour // Точки спавна
+public class PointSpawnPoint : MonoBehaviour // Точки спавна
 {
-    public static List<SpawnPoint> Points = new List<SpawnPoint>();
+    public static List<PointSpawnPoint> Points = new List<PointSpawnPoint>();
 
 
     void Awake()

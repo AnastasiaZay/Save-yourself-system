@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ReadKey : MonoBehaviour
@@ -65,7 +66,7 @@ public class ReadKey : MonoBehaviour
                     {
                         return;
                     }
-                    break;
+                  
                     switch (x)
                     {
                         case 1:
@@ -121,13 +122,14 @@ public class ReadKey : MonoBehaviour
                             Storage.max_health_record = 80;
                             break;
                         case 6:
-                            Storage.max_health_record = 10;
+                            Storage.max_health_record = 100;
                             break;
 
                     }
                     errorText.gameObject.SetActive(false);
 
-                    Debug.Log("URRRRRRRRR");
+
+                    SceneManager.LoadScene("SampleScene");
                     break;
 
             }

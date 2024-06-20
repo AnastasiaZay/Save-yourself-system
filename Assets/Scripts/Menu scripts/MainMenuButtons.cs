@@ -27,11 +27,7 @@ public class MenuButtons : MonoBehaviour
 
     public Text errorLoginText;
 
-    public void StartRandom()
-    {
-        SceneManager.LoadScene(SceneName);
-    }
-
+    
     public void StartWithSeed()
     {
         SceneManager.LoadScene(SceneName);
