@@ -24,6 +24,10 @@ public static class Storage
     //Постоянная часть ссылки на Java часть
     public static string HTTPreference = "http://5.42.98.103:8080/";     //"http://localhost:8080/";
 
+   
+
+
+
 
 }
 
