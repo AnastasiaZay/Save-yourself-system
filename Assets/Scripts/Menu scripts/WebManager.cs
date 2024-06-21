@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
@@ -55,7 +56,7 @@ public class Record
     public int id_user_records;
     public int grade_records;
     public Time time_records;
-    public string date_of_records; ///А надо бы дату
+    public int date_of_records; ///А надо бы дату
     public bool exit_param_record;
     public int number_of_solved_quests_records;
     public int health_record;
@@ -64,7 +65,7 @@ public class Record
     public string beaubeautifullDate;
 
     public Record(int id, int score_records, int id_user_records, int grade_records, Time time_records,
-        string date_of_records, bool exit_param_record, int number_of_solved_quests_records,
+        int date_of_records, bool exit_param_record, int number_of_solved_quests_records,
         int health_record, int id_key_record, int is_record)
     {
         this.id = id;
@@ -103,3 +104,8 @@ public class WebManager : MonoBehaviour
     
 }
 
+public class RecordsWithNames
+{
+    public List<string> names;
+    public List<Record> records;
+}

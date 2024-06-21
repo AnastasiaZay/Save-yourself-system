@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 
 using System.Threading.Tasks;
@@ -136,9 +137,19 @@ public class MenuButtons : MonoBehaviour
     }
     private async Task AsyncConnectRecords()
     {
+
         HttpResponseMessage response = await httpClient.GetAsync(Storage.HTTPreference + "unityConnectRecords");
         string recordJson = await response.Content.ReadAsStringAsync();
+        RecordsWithNames recordsList = JsonUtility.FromJson<RecordsWithNames>(recordJson);
+        Debug.Log(recordJson);
+        
+        for (int i =0; i<recordsList.names.Count; i++)
+        {
+            
+            Debug.Log(name);
 
+        }
+        
     }
 
 
