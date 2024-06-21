@@ -71,21 +71,27 @@ public class ReadKey : MonoBehaviour
                     {
                         case 1:
                             Storage.time_limit_records = "";
+                            Storage.last_time_records = "00:00";
                             break;
                         case 2:
                             Storage.time_limit_records = "1 минута";
+                            Storage.last_time_records = "00:00";
                             break;
                         case 3:
                             Storage.time_limit_records = "2 минуты";
+                            Storage.last_time_records = "00:00";
                             break;
                         case 4:
                             Storage.time_limit_records = "3 минуты";
+                            Storage.last_time_records = "00:00";
                             break;
                         case 5:
                             Storage.time_limit_records = "4 минуты";
+                            Storage.last_time_records = "00:00";
                             break;
                         case 6:
                             Storage.time_limit_records = "5 минут";
+                            Storage.last_time_records = "00:00";
                             break;
 
                     }
@@ -128,7 +134,8 @@ public class ReadKey : MonoBehaviour
                     }
                     errorText.gameObject.SetActive(false);
 
-
+                    Storage.isExit = false;
+                    Storage.isRecord = false;
                     SceneManager.LoadScene("SampleScene");
                     break;
 

@@ -15,8 +15,12 @@ public static class Storage
         number_of_traps_record, 
         point_of_spawn_record, 
         max_health_record, 
-        smoke_level_records;
-    public static string time_limit_records; //Лимит по времени
+        smoke_level_records,
+        number_of_solved_quests_records;
+    public static string time_limit_records, last_time_records; //Лимит по времени
+    public static int scoreRecord;
+    public static bool isExit = false, isRecord = false;
+
 
     //ХП игрока
     public static int playerHP;

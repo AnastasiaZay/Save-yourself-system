@@ -55,18 +55,18 @@ public class Record
     public int score_records;
     public int id_user_records;
     public int grade_records;
-    public Time time_records;
-    public int date_of_records; ///А надо бы дату
+    public string time_records;
+    public string date_of_records; ///А надо бы дату
     public bool exit_param_record;
     public int number_of_solved_quests_records;
     public int health_record;
-    public int id_key_record;
+    public string id_key_record;
     public int is_record;
     public string beaubeautifullDate;
 
-    public Record(int id, int score_records, int id_user_records, int grade_records, Time time_records,
-        int date_of_records, bool exit_param_record, int number_of_solved_quests_records,
-        int health_record, int id_key_record, int is_record)
+    public Record(int id, int score_records, int id_user_records, int grade_records, string time_records,
+        string date_of_records, bool exit_param_record, int number_of_solved_quests_records,
+        int health_record, string id_key_record, int is_record)
     {
         this.id = id;
         this.score_records = score_records;

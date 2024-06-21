@@ -28,7 +28,7 @@ public class MenuButtons : MonoBehaviour
 
     public Text errorLoginText;
 
-    
+
     public void StartWithSeed()
     {
         SceneManager.LoadScene(SceneName);
@@ -142,17 +142,39 @@ public class MenuButtons : MonoBehaviour
         string recordJson = await response.Content.ReadAsStringAsync();
         RecordsWithNames recordsList = JsonUtility.FromJson<RecordsWithNames>(recordJson);
         Debug.Log(recordJson);
-        
-        for (int i =0; i<recordsList.names.Count; i++)
+
+        for (int i = 0; i < recordsList.names.Count; i++)
         {
-            
+
             Debug.Log(name);
 
         }
-        
+
     }
 
+    public void MakeRecordConnect()
+    {
 
+        AsyncMakeRecordConnect();
+    }
+
+    private async Task AsyncMakeRecordConnect()
+    {
+        int isRecord;
+        if (Storage.isRecord) { isRecord = 1; }
+        else { isRecord = 2; }
+        //string x = DateTime.Now;
+        string newRecordTime = DateTime.Now.Year + "-" + DateTime.Now.Day + "-" + DateTime.Now.Month + " 00:00:00";
+        Debug.Log(newRecordTime);
+        Debug.Log(DateTime.Now);
+        Record newRecord = new Record(0, Storage.scoreRecord, Storage.currentUser.id, 5, "00:00:00",
+           newRecordTime, Storage.isExit, Storage.number_of_solved_quests_records, Storage.playerHP, Storage.currentKey, isRecord);
+        string newRecordJson = JsonUtility.ToJson(newRecord);
+        var content = new StringContent(newRecordJson);
+        Debug.Log(newRecordJson);
+        HttpResponseMessage response = await httpClient.PostAsync(Storage.HTTPreference + "unityNewRecord", content);
+        Debug.Log(await response.Content.ReadAsStringAsync());
+    }
     [Serializable]
     public class MiniUser
     {
