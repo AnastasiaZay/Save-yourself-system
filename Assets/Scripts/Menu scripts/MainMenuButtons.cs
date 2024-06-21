@@ -35,6 +35,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void BackToMain()
     {
+        errorLoginText.gameObject.SetActive(false);
         if (Storage.currentUser == null)
         {
             panelGuest.gameObject.SetActive(true);
@@ -52,6 +53,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void SignOut()
     {
+        errorLoginText.gameObject.SetActive(false);
         Storage.currentUser = null;
         panelGuest.gameObject.SetActive(true);
         panelStudent.gameObject.SetActive(false);

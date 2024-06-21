@@ -26,8 +26,8 @@ public static class Storage
     public static int playerHP;
 
     //Постоянная часть ссылки на Java часть
-    //public static string HTTPreference = "http://5.42.98.103:8080/";     
-    public static string HTTPreference = "http://localhost:8080/";
+    public static string HTTPreference = "http://5.42.98.103:8080/";     
+    //public static string HTTPreference = "http://localhost:8080/";
 
 
 

@@ -1896,7 +1896,7 @@ GameObject:
   - component: {fileID: 320076803}
   m_Layer: 5
   m_Name: InputLastName
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3780,7 +3780,7 @@ GameObject:
   - component: {fileID: 591475950}
   m_Layer: 5
   m_Name: Training
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4665,7 +4665,7 @@ GameObject:
   - component: {fileID: 705748485}
   m_Layer: 5
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5264,7 +5264,7 @@ GameObject:
   - component: {fileID: 789939835}
   m_Layer: 5
   m_Name: Testing
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5721,7 +5721,7 @@ GameObject:
   - component: {fileID: 813967732}
   m_Layer: 5
   m_Name: Sign out
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8508,7 +8508,7 @@ GameObject:
   - component: {fileID: 1168788550}
   m_Layer: 5
   m_Name: Button (Legacy)
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8711,7 +8711,7 @@ GameObject:
   - component: {fileID: 1181914783}
   m_Layer: 5
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8787,6 +8787,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1640781590}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: BackToMain
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9053,7 +9065,7 @@ GameObject:
   - component: {fileID: 1198985440}
   m_Layer: 5
   m_Name: InputName
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11691,7 +11703,7 @@ GameObject:
   - component: {fileID: 1538711291}
   m_Layer: 5
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13727,7 +13739,7 @@ GameObject:
   - component: {fileID: 1865717609}
   m_Layer: 5
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13950,7 +13962,7 @@ GameObject:
   - component: {fileID: 1866606802}
   m_Layer: 5
   m_Name: Records
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14257,7 +14269,7 @@ GameObject:
   - component: {fileID: 1895716309}
   m_Layer: 5
   m_Name: SingIn
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14739,7 +14751,7 @@ GameObject:
   - component: {fileID: 2028668033}
   m_Layer: 5
   m_Name: InputKey
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15125,7 +15137,7 @@ GameObject:
   - component: {fileID: 2089043370}
   m_Layer: 5
   m_Name: Test
-  m_TagString: Untagged
+  m_TagString: ButtonUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

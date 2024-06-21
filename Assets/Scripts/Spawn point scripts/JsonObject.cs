@@ -1,10 +1,4 @@
-using NaughtyAttributes.Test;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEditor;
-using UnityEditor.PackageManager.UI;
-using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 
 
