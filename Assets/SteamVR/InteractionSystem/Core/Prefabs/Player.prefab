@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 5586004747589917288}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,7 +326,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4df5046860db84bbcfde47d7e6c4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   playerSpeed: 5.21
+  gravity: -9.81
 --- !u!114 &5586004747589917288
 MonoBehaviour:
   m_ObjectHideFlags: 0
